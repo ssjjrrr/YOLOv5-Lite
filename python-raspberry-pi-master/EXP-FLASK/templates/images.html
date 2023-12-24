@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片处理</title>
+</head>
+<body>
+    <h1>上传本地图片并处理</h1>
+    
+    <form action="" method='POST' enctype="multipart/form-data" >
+        <input type="file" name="file"/>
+        <br>
+     
+        <b>处理方法</b>
+        <br>
+        <input type="radio" name="method_img_process" value="edge" checked>边缘提取
+        <span>&nbsp &nbsp </span>
+        MIN<input type="text" name="th_edge_MIN" value=100 size=5>
+        <span>&nbsp &nbsp </span>
+        MAX<input type="text" name="th_edge_MAX" value=150 size=5>
+        <br>
+        <input type="radio" name="method_img_process" value="gray">灰度转换
+        <br>
+        <input type="radio" name="method_img_process" value="effect_cartoon">卡通效果
+        <br>
+        <input type="radio" name="method_img_process" value="ocr">文字识别
+        <br>
+        <input type="radio" name="method_img_process" value="face_det">人脸特效
+        <br>
+        <span>&nbsp &nbsp </span><input type="radio" name="face_hat" value="hat1" checked>礼帽
+                                 <input type="radio" name="face_hat" value="hat2">魔术帽
+                                 <input type="radio" name="face_hat" value="None">无
+        <br>                         
+        <span>&nbsp &nbsp </span><input type="radio" name="face_eye" value="eye1" checked>眼镜
+                                 <input type="radio" name="face_eye" value="eye2">卡通眼 
+                                 <input type="radio" name="face_eye" value="None">无 
+                                 
+                                 
+                                 
+        <br>                         
+        <input type="radio" name="method_img_process" value="face_beauty">美颜特效
+        
+        <br>   
+         <span>&nbsp &nbsp </span>   <input type="radio" name="Face_Beauti" value="bigeye" checked>大眼
+         <span>&nbsp &nbsp </span>   <input type="radio" name="Face_Beauti" value="thinface">瘦脸
+         <span>&nbsp &nbsp </span>   <input type="radio" name="Face_Beauti" value="colorLip">烈焰红唇
+        
+        
+       <br> 
+        <input type="submit" value="上传" class="button-new" />
+        <span>{{message}}</span>
+     
+    </form>
+   
+     <br>
+     <a href="/">首页</a>
+     <a href="/light">灯光控制</a>
+     <a href="/env">环境显示</a> 
+     <a href="/images">图像处理</a>
+     <a href="/music">音乐演奏</a>
+     <a href="/video">视频处理</a>
+    
+</body>
+</html>

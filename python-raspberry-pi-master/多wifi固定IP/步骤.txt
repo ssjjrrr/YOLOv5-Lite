@@ -1,0 +1,73 @@
+wifi连接设置
+
+第一步 
+sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
+
+country=CN
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+network={
+ ssid="LDU508"
+ psk="LDUAIGOOD"
+ priority=10
+}
+network={
+ ssid="HUAWEI-ZYJ"
+ psk="ha446446"
+ priority=11
+}
+network={
+ ssid="hyhot"
+ psk="12345678"
+ priority=1
+}
+
+
+第二步
+sudo nano /etc/network/interfaces
+
+# interfaces(5) file used by ifup(8) and ifdown(8)
+
+# Please note that this file is written to be used with dhcpcd
+# For static IP, consult /etc/dhcpcd.conf and 'man dhcpcd.conf'
+
+# Include files from /etc/network/interfaces.d:
+source-directory /etc/network/interfaces.d
+
+auto lo
+iface lo inet loopback
+
+iface eth0 inet manual
+
+allow-hotplug wlan0
+iface wlan0 inet manual
+    wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
+
+allow-hotplug wlan1
+iface wlan1 inet manual
+    wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
+
+
+第三步
+sudo nano /etc/network/interfaces
+
+interface wlan0 
+arping 192.168.1.1
+arping 192.168.3.1
+arping 182.168.43.1
+
+profile 192.168.1.1
+static ip_address=192.168.1.55/24 
+static routers=192.168.1.1
+static domain_name_servers=114.114.114.114
+
+
+profile 192.168.3.1
+static ip_address=192.168.3.24/24 
+static routers=192.168.3.1
+static domain_name_servers=114.114.114.114
+
+profile 192.168.43.1
+static ip_address=192.168.43.80/24 
+static routers=192.168.43.1
+static domain_name_servers=114.114.114.114

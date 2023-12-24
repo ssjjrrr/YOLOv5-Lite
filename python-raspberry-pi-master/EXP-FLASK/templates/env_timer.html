@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>  
+    <title>环境检测</title>
+    </head>
+    
+    <script>
+    function getEnv() {
+                var xmlHttp = new XMLHttpRequest();
+                var baseUrl = "/get_env_info";
+                xmlHttp.open( "GET", baseUrl, false );
+                xmlHttp.send( null );
+                return xmlHttp.responseText;
+            }
+    
+     function writeEnv() {
+                var Ino_Env = getEnv();
+                var json = JSON.parse(Ino_Env);
+                document.getElementById("temp_18b20").innerText = json.tem;
+                document.getElementById("hum_DHT11").innerText = json.hum; 
+                document.getElementById("lux_PCF8591").innerText = json.lux;
+                document.getElementById("press_BMP085").innerText = json.press;
+                document.getElementById("altitude_BMP085").innerText = json.altitude;
+            }
+     function addTimer() {
+                setInterval(writeEnv, 5000);
+            }  
+    </script>
+
+    
+    
+    
+    
+    <body onload="addTimer();">
+        <h2>环境监测系统2</h2>
+        
+        <div >
+        溫度 
+        <h2><span id = "temp_18b20">{{ tem }}</span>℃</h2>
+        </div>
+        
+        <div >
+        湿度 
+        <h2><span id = "hum_DHT11">{{ hum }}</span>RH</h2>
+        </div>
+        
+        <div >
+        光照度 
+        <h2><span id = "lux_PCF8591">{{ lux }}</span>LUX</h2>
+        </div>
+        
+        <div >
+        气压 
+        <h2><span id = " press_BMP085">{{ press }}</span></h2>
+        </div>
+        
+        <div >
+        海拔
+        <h2><span id = "altitude_BMP085">{{ altitude }}</span></h2>
+        </div>
+        <br>
+        
+     <a href="/">首页</a>
+     <a href="/light">灯光控制</a>
+     <a href="/env">环境显示</a> 
+     <a href="/images">图像处理</a>
+     <a href="/music">音乐演奏</a>
+     <a href="/video">视频处理</a>
+    
+    </body>
+</html>

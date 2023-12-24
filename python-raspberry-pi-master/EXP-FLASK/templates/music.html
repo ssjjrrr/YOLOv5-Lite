@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>乐曲演奏</title>
+</head>
+<body>
+    <h1>上传乐谱并演奏</h1>
+    
+    <form action="" method='POST' enctype="multipart/form-data" >
+        <input type="file" name="file" value ={{file_name}}/>
+        <br>
+        
+        <input type="submit" value="演奏" name= "music_play"/>
+        <br>
+      
+        <input type="submit" value="停止" name = "music_stop"/>
+        <br>
+        <span>{{message_file_error}}</span>
+    </form>
+     <a href="/">首页</a>
+     <a href="/light">灯光控制</a>
+     <a href="/env">环境显示</a> 
+     <a href="/images">图像处理</a>
+     <a href="/music">音乐演奏</a>
+     <a href="/video">视频处理</a>
+      
+</body>
+</html>

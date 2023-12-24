@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- <meta http-equiv="refresh" content="1" charset="UTF-8"> -->
+    <title>视频演示</title>
+</head>
+<body>
+    <form action="/video" method='POST' enctype="multipart/form-data" >
+    <h1>效果显示：{{mess_effect}}</h1>
+    
+     <input type="radio" name="method_video_effect" value="original" checked> 原始
+     <input type="radio" name="method_video_effect" value="gray">灰度
+     <input type="radio" name="method_video_effect" value="edge">边缘    
+     <input type="radio" name="method_video_effect" value="cartoon">卡通
+     <input type="submit" value="提交"  />
+    <br>
+    <img src="{{videourl}}"/>
+    
+    </form>
+    
+    <br>
+     <a href="/">首页</a>
+     <a href="/light">灯光控制</a>
+     <a href="/env">环境显示</a> 
+     <a href="/images">图像处理</a>
+     <a href="/music">音乐演奏</a>
+     <a href="/video">视频处理</a>
+</body>
+</html>

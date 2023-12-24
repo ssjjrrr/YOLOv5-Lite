@@ -1,0 +1,30 @@
+begin 
+	button = KEY_NUMERIC_1 
+	prog = test_yu
+	config = Run_LED
+end
+
+begin 
+	button = KEY_NUMERIC_2 
+	prog = test_yu
+	config = Pause_LED
+end
+
+begin 
+	button = KEY_NUMERIC_3 
+	prog = test_yu
+	config = Run_Song
+end
+
+begin 
+	button = KEY_NUMERIC_4 
+	prog = test_yu
+	config = Pause_Song
+end
+
+begin 
+	button = KEY_NUMERIC_5 
+	prog = test_yu
+	config = DHT
+end
+

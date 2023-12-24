@@ -1,0 +1,30 @@
+begin 
+	button = KEY_NUMERIC_1 
+	prog = test_yu
+	config = red
+end
+
+begin 
+	button = KEY_NUMERIC_2 
+	prog = test_yu
+	config = green
+end
+
+begin 
+	button = KEY_NUMERIC_3 
+	prog = test_yu
+	config = blue
+end
+
+begin 
+	button = KEY_NUMERIC_4 
+	prog = test_yu
+	config = DHT
+end
+
+begin 
+	button = KEY_NUMERIC_5 
+	prog = test_yu
+	config = Song
+end
+

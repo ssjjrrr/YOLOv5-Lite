@@ -1,0 +1,94 @@
+
+一 安装lirc 并配置
+   
+   1. 安装 
+     sudo apt-get update
+     sudo apt-get install lirc
+   2. 修改配置文件
+     sudo nano /etc/lirc/lirc_options.conf 
+     
+     drive = default
+     device = /dev/lirc0
+     
+   3. 修改树莓派的配置文件
+      sudo nano /boot/config.txt
+      
+      dtoverlayer=gpio-ir,gpio-pin=17
+      # dtoverlayer=gpio-ir-tx,gpio-pin=18    只接受不发射可以不写    
+     
+     
+二 测试 lirc 是否好用
+   
+   mode2 -d /dev/lirc0
+   
+三 进行按键的配置
+    
+    mode2  -m -d /dev/lirc0
+    
+    会输出一组数字
+    将这组数字填入配置文件的相应位置 （已经准备好了）
+    
+    如果没有准备好可以自己创建配置文件
+    irrecord -f -d /dev/lirc0
+  
+四 修改lirc中的按键配置文件
+   sudo nano /etc/lirc/lircd.conf
+   
+五 测试
+   irw
+   
+
+python2 环境
+pip install python-lirc
+   
+   
+python3 环境
+
+1 安装编译需要的包
+sudo apt install cython gcc liblircclient-dev python{,3}-{dev,setuptools}
+
+2 
+git clone https://github.com/tompreston/python-lirc.git
+无法git可以直接 安装包
+cd python-lirc/
+python3 setup.py build
+python3 setup.py install --user
+
+
+
+
+测试：
+1 构建一个"lircrc"的文件
+  
+  输入以下内容
+  
+begin
+  button = 1          # /etc/lirc/lircd.conf 中定义的按键名称
+  prog = myprogram    # 可以任意，需要和Python代码中一致
+  config = one, horse # 按键按下后送入python程序的数据，
+end
+
+begin
+  button = 2
+  prog = myprogram
+  config = two
+end
+
+2 依次执行下面的代码
+     import lirc
+     
+     sockid = lirc.init("myprogram", "lircrc")
+     lirc.nextcode()
+     
+     lirc.deinit()
+
+
+
+
+
+
+
+
+
+
+

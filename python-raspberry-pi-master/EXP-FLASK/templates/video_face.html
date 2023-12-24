@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- <meta http-equiv="refresh" content="1" charset="UTF-8"> -->
+    <title>人脸检测登陆</title>
+</head>
+
+ <script>
+    function getFlag() {
+                var xmlHttp = new XMLHttpRequest();
+                var baseUrl = "/checkFace";
+                xmlHttp.open( "GET", baseUrl, false );
+                xmlHttp.send( null );
+                return xmlHttp.responseText;
+            }
+     function changeUrl() {
+                var Ino_Flag = getFlag();
+                var json = JSON.parse(Ino_Flag);
+                if (json.flag == "True")
+                    { 
+                       window.location.assign("/light")
+                    }
+    
+            }
+     
+     function addTimer() {
+                setInterval(changeUrl, 5000);
+            }  
+    </script>
+
+<body onload="addTimer();">
+    
+    <h1>人脸检测登陆</h1>
+    <img src="{{videourl}}"/>
+    <br>
+ 
+</body>
+</html>

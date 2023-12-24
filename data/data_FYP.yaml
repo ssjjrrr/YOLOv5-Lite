@@ -1,0 +1,11 @@
+
+
+train: D:/YOLO_v5/yolov5/data/data_FYP/images/train
+val: D:/YOLO_v5/yolov5/data/data_FYP/images/val
+test: D:/YOLO_v5/yolov5/data/data_FYP/images/test
+
+# number of classes
+nc: 4
+
+# class names
+names: ['crossing', 'red', 'green', 'stairs']
